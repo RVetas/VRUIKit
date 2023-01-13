@@ -9,10 +9,17 @@
 import UIKit
 
 public struct CircleRenderRequest {
-	let view: UIView
-	let centerPoint: CGPoint
-	let startSize: CGSize
-	let targetSize: CGSize
+	public let view: UIView
+	public let centerPoint: CGPoint
+	public let startSize: CGSize
+	public let targetSize: CGSize
+	
+	public init(view: UIView, centerPoint: CGPoint, startSize: CGSize, targetSize: CGSize) {
+		self.view = view
+		self.centerPoint = centerPoint
+		self.startSize = startSize
+		self.targetSize = targetSize
+	}
 }
 
 public protocol RendersCircles {
