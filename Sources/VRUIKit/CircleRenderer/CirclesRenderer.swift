@@ -8,14 +8,14 @@
 
 import UIKit
 
-struct CircleRenderRequest {
+public struct CircleRenderRequest {
 	let view: UIView
 	let centerPoint: CGPoint
 	let startSize: CGSize
 	let targetSize: CGSize
 }
 
-protocol RendersCircles {
+public protocol RendersCircles {
 	func drawAnimatedCircle(
 		request: CircleRenderRequest,
 		intermediateAction: (() -> Void)?,
@@ -23,12 +23,12 @@ protocol RendersCircles {
 	)
 }
 
-final class CirclesRenderer: RendersCircles {
+public final class CirclesRenderer: RendersCircles {
 	private let pathBuilder: BuildsPath
 	private let animationBuilder: BuildsAnimation
 	private let transactionBuilder: BuildsAnimationTransaction
 	
-	init(
+	public init(
 		pathBuilder: BuildsPath = PathBuilder(),
 		animationBuilder: BuildsAnimation = AnimationBuilder(),
 		transactionBuilder: BuildsAnimationTransaction = AnimationTransactionBuilder()
@@ -38,7 +38,7 @@ final class CirclesRenderer: RendersCircles {
 		self.transactionBuilder = transactionBuilder
 	}
 	
-	func drawAnimatedCircle(
+	public func drawAnimatedCircle(
 		request: CircleRenderRequest,
 		intermediateAction: (() -> Void)?,
 		completion: (() -> Void)?
