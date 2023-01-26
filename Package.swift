@@ -19,11 +19,15 @@ let package = Package(
 			url: "https://github.com/pointfreeco/swift-snapshot-testing",
 			exact: "1.10.0"
 		),
+		.package(
+			url: "https://github.com/SnapKit/SnapKit.git",
+			exact: "5.0.1"
+		),
     ],
     targets: [
         .target(
             name: "VRUIKit",
-            dependencies: []
+			dependencies: [.product(name: "SnapKit", package: "SnapKit")]
 		),
         .testTarget(
             name: "VRUIKitTests",
