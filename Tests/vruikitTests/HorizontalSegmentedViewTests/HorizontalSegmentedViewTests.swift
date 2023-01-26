@@ -36,12 +36,16 @@ private extension HorizontalSegmentedViewTests {
 		static let frame = CGRect(x: 0, y: 0, width: 200, height: 80)
 		static let blackAndWhiteViewModel = HorizontalSegmentedView.ViewModel(
 			segments: blackAndWhiteSegments,
-			backgroundColor: .black
+			backgroundColor: .black,
+			spacing: 2,
+			segmentRadius: 4
 		)
 		
 		static let coloredViewModel = HorizontalSegmentedView.ViewModel(
 			segments: coloredSegments,
-			backgroundColor: .black
+			backgroundColor: .black,
+			spacing: 8,
+			segmentRadius: 1
 		)
 		
 		static let bigSegment = HorizontalSegmentedView.Segment(

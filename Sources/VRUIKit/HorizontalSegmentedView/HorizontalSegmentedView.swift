@@ -32,13 +32,14 @@ public final class HorizontalSegmentedView: UIView {
 	public struct ViewModel {
 		public let segments: [Segment]
 		public let backgroundColor: UIColor
+		public let spacing: CGFloat
+		public let segmentRadius: CGFloat
 		
-		public init(
-			segments: [Segment],
-			backgroundColor: UIColor
-		) {
+		public init(segments: [Segment], backgroundColor: UIColor, spacing: CGFloat, segmentRadius: CGFloat) {
 			self.segments = segments
 			self.backgroundColor = backgroundColor
+			self.spacing = spacing
+			self.segmentRadius = segmentRadius
 		}
 	}
 	
@@ -47,7 +48,6 @@ public final class HorizontalSegmentedView: UIView {
 		stackView.axis = .horizontal
 		stackView.distribution = .fillEqually
 		stackView.alignment = .center
-		stackView.spacing = Configuration.spacing
 		return stackView
 	}()
 	
@@ -65,11 +65,12 @@ public final class HorizontalSegmentedView: UIView {
 	public func configure(with viewModel: ViewModel) {
 		backgroundColor = viewModel.backgroundColor
 		segmentedStackView.backgroundColor = viewModel.backgroundColor
+		segmentedStackView.spacing = viewModel.spacing
 		
 		segmentedStackView.subviews.forEach { $0.removeFromSuperview() }
 		for segment in viewModel.segments {
 			let segmentView = UIView()
-			segmentView.layer.cornerRadius = Configuration.segmentRadius
+			segmentView.layer.cornerRadius = viewModel.segmentRadius
 			segmentView.backgroundColor = segment.color
 			segmentedStackView.addArrangedSubview(segmentView)
 			segmentView.snp.makeConstraints {
