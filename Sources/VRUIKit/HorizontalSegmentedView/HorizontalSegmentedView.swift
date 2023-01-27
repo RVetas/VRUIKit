@@ -9,12 +9,6 @@ import UIKit
 import SnapKit
 
 public final class HorizontalSegmentedView: UIView {
-
-	private enum Configuration {
-		static let stackInset: CGFloat = 8
-		static let segmentRadius: CGFloat = 4
-		static let spacing: CGFloat = 2
-	}
 	
 	public struct Segment {
 		public let color: UIColor
@@ -90,7 +84,7 @@ private extension HorizontalSegmentedView {
 	
 	func makeConstraints() {
 		segmentedStackView.snp.makeConstraints {
-			$0.edges.equalToSuperview().inset(Configuration.stackInset)
+			$0.edges.equalToSuperview()
 		}
 	}
 }
