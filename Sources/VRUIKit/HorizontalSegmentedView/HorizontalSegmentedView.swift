@@ -59,7 +59,10 @@ public final class HorizontalSegmentedView: UIView {
 	}
 	
 	required init?(coder: NSCoder) {
-		fatalError("init(coder:) has not been implemented")
+		super.init(frame: .zero)
+		
+		addSubviews()
+		makeConstraints()
 	}
 	
 	public func configure(with viewModel: ViewModel) {
